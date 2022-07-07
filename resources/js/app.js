@@ -1,11 +1,8 @@
-import './bootstrap';
+import { createApp } from 'vue/dist/vue.esm-bundler.js'
 
-import vue from 'vue/dist/vue.esm.js';
-window.Vue = vue;
+const app = createApp({})
 
-import Counter from './components/Counter.vue';
-Vue.component('counter', Counter);
+import Counter from './components/Counter.vue'
+app.component('counter', Counter)
 
-new Vue({
-    el: '#app',
-});
+app.mount('#app')
