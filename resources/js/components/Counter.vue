@@ -1,16 +1,22 @@
-<script setup>
-import { ref } from 'vue';
-
-const counter = ref(0);
-
-function increment() {
-  counter.value ++;
-}
-</script>
-
 <template>
     <div>
         <h1>{{ counter }}</h1>
         <button @click="increment">Increment</button>
     </div>
 </template>
+
+<script>
+export default {
+    computed: {
+        counter() {
+            return this.$store.state.counter;
+        },
+    },
+
+    methods: {
+        increment() {
+            this.$store.commit('increment');
+        }
+    }
+};
+</script>
